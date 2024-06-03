@@ -13,4 +13,8 @@ func TestList(t *testing.T) {
 	if len(todos) != 0 {
 		t.Errorf("expected 0 todos, got %d", len(todos))
 	}
+
+	if todos == nil {
+		t.Errorf("expected todos not to be nil")
+	}
 }

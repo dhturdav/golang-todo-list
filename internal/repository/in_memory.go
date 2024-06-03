@@ -7,7 +7,7 @@ type InMemory struct {
 }
 
 func NewInMemory() *InMemory {
-	return &InMemory{}
+	return &InMemory{todos: []entity.Todo{}}
 }
 
 func (r *InMemory) List() []entity.Todo {
