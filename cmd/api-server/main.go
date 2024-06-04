@@ -1,19 +1,9 @@
 package main
 
-import (
-	"dhturdav/golang-todo-list/internal/repository"
-	"net/http"
-
-	"github.com/gin-gonic/gin"
-)
+import "dhturdav/golang-todo-list/internal/api"
 
 func main() {
-	router := gin.Default()
-	repo := repository.NewInMemory()
+	r := api.Router()
 
-	router.GET("/todos", func(c *gin.Context) {
-		c.JSON(http.StatusOK, repo.List())
-	})
-
-	router.Run()
+	r.Run()
 }
