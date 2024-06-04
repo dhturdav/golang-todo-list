@@ -11,5 +11,9 @@ func NewInMemory() *InMemory {
 }
 
 func (r *InMemory) List() []entity.Todo {
+	if len(r.todos) == 0 {
+		return []entity.Todo{}
+	}
+
 	return r.todos
 }
