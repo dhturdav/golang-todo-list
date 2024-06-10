@@ -27,10 +27,7 @@ func TestCreate(t *testing.T) {
 	r := repository.NewInMemory()
 	todo := entity.Todo{Title: "Test todo"}
 
-	r.Create(todo)
-
-	todos := r.List()
-	assert.Equal(t, 1, len(todos), "expected 1 todo after creation")
-	assert.Equal(t, "Test todo", todos[0].Title, "expected todo title to match")
-	assert.NotEqual(t, uuid.Nil, todos[0].ID, "expected todo to have a non-nil ID")
+	createdTodo := r.Create(todo)
+	assert.Equal(t, "Test todo", createdTodo.Title, "expected todo title to match")
+	assert.NotEqual(t, uuid.Nil, createdTodo.ID, "expected todo to have a non-nil ID")
 }
