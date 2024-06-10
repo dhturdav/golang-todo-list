@@ -11,6 +11,7 @@ func Router() *gin.Engine {
 	todos := todosHandler{repository: repository.NewInMemory()}
 
 	router.GET("/todos", todos.list)
+	router.POST("/todos", todos.create)
 
 	return router
 }
